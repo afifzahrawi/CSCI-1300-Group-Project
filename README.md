@@ -5,3 +5,18 @@ home page
 4. search - saufi
 5. appoint
 6. exit
+
+#include<iostream>
+ using namespace std;
+  
+  void create();
+  void remove();
+  void edit();
+  void search();
+  void appoint();
+  
+  int main()
+  {
+  
+  
+  }
