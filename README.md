@@ -7,16 +7,16 @@ home page
 6. exit
 
 #include<iostream>
- using namespace std;
+using namespace std;
   
-  void create();
-  void remove();
-  void edit();
-  void search();
-  void appoint();
+void create();
+void remove();
+void edit();
+void search();
+void appoint();
   
-  int main()
-  {
+int main()
+{
   
   
-  }
+ }
