@@ -1,4 +1,3 @@
-# coding
 home page
 1. create
 2. remove
