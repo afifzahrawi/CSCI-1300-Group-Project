@@ -1,13 +1,8 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-void create();
-void remove();
-void edit();
-void search();
-void appointment();
-
-struct patient
+	struct Patient
 {
 	string firstname;
 	string lastname;
@@ -15,16 +10,28 @@ struct patient
 	char gender;
 };
 
+void create(Patient *);
+void remove();
+void edit();
+void search();
+void appointment();
+
+
+
+const int SIZE = 50;
+	
 int main ()
 {
-	int selection;
+	Patient *patientData;
+	
+	int selection = 1;
+	
 	cout << "----------------------------------\n";
 	cout << "Welcome to Hospital Registration! \n";
-	cout << "----------------------------------\n";
 	
 	
 	
-	while(selection < 6)
+	while(selection >= 1 && selection <= 5)
 	{
 		cout << "----------------------------------\n";
 		cout << "How can we help you? \n";
@@ -35,12 +42,13 @@ int main ()
 		cout << "(4) Search for patient\n";
 		cout << "(5) Appoint a patient to doctor" << endl;
 		cout << "(0) To exit the system" << endl;
+		cout << "----------------------------------\n";
 		cin >> selection;
 		
 		
 		if(selection == 1)
 		{
-			create();
+			create(patientData);
 			system("cls");
 		}
 		else if (selection == 2)
@@ -66,9 +74,32 @@ int main ()
 	return 0;
 }
 
-void create()
+void create(Patient *patientData)
 {
-	cout << "pick 1";
+	int i ;
+	int ans = 1;
+	char key;
+	for (int i = 0; i < SIZE; i++)
+	{
+	while ( ans == 1)
+	{
+	
+	cout << "Create a new Patient : " << endl;
+	cout << "First name : ";
+	getline(cin,patientData->firstname);
+	cout << "\nLast name : ";
+	getline(cin,patientData->lastname);
+	cout << "Continue? (y/n) : ";
+	cin.get(key);
+	if (key == 'y' || key == 'Y')
+	{
+		ans = 1;
+	}
+	else 
+	
+	ans = 0;	
+}
+}
 }
 void remove()
 {
