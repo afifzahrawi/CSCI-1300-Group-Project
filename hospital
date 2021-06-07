@@ -7,22 +7,34 @@ void edit();
 void search();
 void appointment();
 
-struct PatientData
+struct patient
 {
-	string name;
-	int date;
-	
-}
+	string firstname;
+	string lastname;
+	int age;
+	char gender;
+};
 
 int main ()
 {
 	int selection;
+	cout << "----------------------------------\n";
 	cout << "Welcome to Hospital Registration! \n";
+	cout << "----------------------------------\n";
 	
 	
 	
 	while(selection < 6)
 	{
+		cout << "----------------------------------\n";
+		cout << "How can we help you? \n";
+		cout << "Please select from the below section : \n";
+		cout << "(1) Create a new patient data \n";
+		cout << "(2) Remove existing patient data\n";
+		cout << "(3) Edit existing patient data\n";
+		cout << "(4) Search for patient\n";
+		cout << "(5) Appoint a patient to doctor" << endl;
+		cout << "(0) To exit the system" << endl;
 		cin >> selection;
 		
 		
@@ -50,7 +62,7 @@ int main ()
 		appointment();
 		system("cls");
 	}
-	
+	cout << "Thanks for using the service";
 	return 0;
 }
 
