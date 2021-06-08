@@ -7,21 +7,18 @@ using namespace std;
 	char name[50];
 	int age;
 	char gender;
-};
+}patientData[50];
 
-void create(Patient *);
+void create();
 void remove();
 void edit();
 void search();
 void appointment();
 
 
-
-const int SIZE = 50;
-	
 int main ()
 {
-	Patient *patientData;
+	
 	
 	int selection = 1;
 	
@@ -47,7 +44,7 @@ int main ()
 		
 		if(selection == 1)
 		{
-			create(patientData);
+			create();
 			system("cls");
 		}
 		else if (selection == 2)
@@ -73,9 +70,9 @@ int main ()
 	return 0;
 }
 
-void create(Patient *patientData)
+void create()
 {
-	int i ;
+	int i;
 	char key;
 	
 	system("cls");
@@ -86,19 +83,39 @@ void create(Patient *patientData)
 	while ( key != 'n' && key != 'N')
 	{
 	
-	Patient patientData;
-
 	cout << "Please Enter Patient Name : ";
-	cin>> patientData.	name;
+	cin>> patientData[i].name;
+	cout << "Gender : ";
+	cin >> patientData[i].gender;
+	i++;
 	cout << "Continue to add patient? (y/n) : ";
 	cin >> key;
 	cout << endl;
 }
-
 }
 void remove()
 {
-	cout << "pick 2";
+	system("cls");
+	char name[50];
+	int size = 50; 
+	cout << "Please enter the name of patient to be remove : ";
+	cin >> name;
+	for (int i = 0; i < size; i++ )
+	{
+		if(patientData[i].name == name)
+		{
+			for(int j=i; j < size-1; j++)
+			{
+				
+				patientData[j].gender = patientData[j+1].gender;
+			}
+		size--;
+		break;	
+		}
+	}
+	cout << "\nPress any key to continue";
+	getchar();
+	system("pause");
 }
 void edit()
 {
@@ -106,8 +123,22 @@ void edit()
 }
 void search()
 {
-	cout << "pick 4";
+	system("cls");
+
+	int i;
+	cout << "These are the lists of patient registered : \n\n";
+	
+	for(int i = 0; i < 50; i++)
+	{
+	cout << "Detail for Patient no" << i+1 << endl;
+	cout << "Name   : " << patientData[i].name << endl;
+	cout << "Gender : " << patientData[i].gender << endl;
 }
+	cout << "Press any key to continue";
+	getchar();
+	system("pause");
+}
+
 void appointment()
 {
 	cout << "pick 5";
