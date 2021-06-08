@@ -4,8 +4,7 @@ using namespace std;
 
 	struct Patient
 {
-	string firstname;
-	string lastname;
+	char name[50];
 	int age;
 	char gender;
 };
@@ -77,29 +76,25 @@ int main ()
 void create(Patient *patientData)
 {
 	int i ;
-	int ans = 1;
 	char key;
-	for (int i = 0; i < SIZE; i++)
-	{
-	while ( ans == 1)
+	
+	system("cls");
+	cout << "************************************" << endl;
+	cout << "****Patient Data Registry System****\n";
+	cout << "************************************" << endl << endl;
+	
+	while ( key != 'n' && key != 'N')
 	{
 	
-	cout << "Create a new Patient : " << endl;
-	cout << "First name : ";
-	getline(cin,patientData->firstname);
-	cout << "\nLast name : ";
-	getline(cin,patientData->lastname);
-	cout << "Continue? (y/n) : ";
-	cin.get(key);
-	if (key == 'y' || key == 'Y')
-	{
-		ans = 1;
-	}
-	else 
-	
-	ans = 0;	
+	Patient patientData;
+
+	cout << "Please Enter Patient Name : ";
+	cin>> patientData.	name;
+	cout << "Continue to add patient? (y/n) : ";
+	cin >> key;
+	cout << endl;
 }
-}
+
 }
 void remove()
 {
