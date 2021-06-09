@@ -25,7 +25,7 @@ int main ()
 	cout << "----------------------------------\n";
 	cout << "Welcome to Hospital Registration! \n";
 	
-	while(selection >= 1 && selection <= 5)
+	while(selection != 0)
 	{
 		cout << "----------------------------------\n";
 		cout << "How can we help you? \n";
@@ -71,7 +71,8 @@ int main ()
 		
 		else
 		{
-		        cout << "invalid input" << endl;
+		        system("cls");
+		        cout << "Invalid input, please select the correct number" << endl;
 			continue;
 		}
 	}
@@ -82,11 +83,11 @@ int main ()
 void create()
 {
 	int i;
-	char key;
+	char key = 'y';
 	
 	system("cls");
 	cout << "************************************" << endl;
-	cout << "*** Patient Data Registry System ***\n";
+	cout << "*** Patient Data Registry System ***" << endl;
 	cout << "************************************" << endl << endl;
 	
 	while ( key != 'n' && key != 'N')
@@ -102,9 +103,21 @@ void create()
 	       i++;
 	       patient_count++;
 	       
-	       cout << "Continue to add patient? (y/n) : ";
-	       cin >> key;
-	       cout << endl;
+	       while (1)
+	       {
+	              cout << "Continue to add patient? (y/n) : ";
+	              cin >> key;
+	              cout << endl;
+	        
+	              if (key != 'y' && key != 'Y' && key != 'n' && key != 'N')
+	              {
+	                      cout << "Invalid input" <<endl;
+	        	      continue;
+		      }
+			
+		      else
+			      break;
+	       }
         }
 }
 
