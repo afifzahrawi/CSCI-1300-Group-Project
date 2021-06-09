@@ -4,7 +4,7 @@ using namespace std;
 int patient_count;
 int remove_count;
 
-	struct Patient
+struct Patient
 {
 	char name[50];
 	int age;
@@ -18,17 +18,12 @@ void edit();
 void search();
 void appointment();
 
-
 int main ()
 {
-	
-	
 	int selection = 1;
 	
 	cout << "----------------------------------\n";
 	cout << "Welcome to Hospital Registration! \n";
-	
-	
 	
 	while(selection >= 1 && selection <= 5)
 	{
@@ -44,30 +39,41 @@ int main ()
 		cout << "----------------------------------\n";
 		cin >> selection;
 		
-		
 		if(selection == 1)
 		{
 			create();
 			system("cls");
 		}
+		
 		else if (selection == 2)
 		{
 			remove();
 			system("cls");
 		}
+		
 		else if (selection == 3)
 		{
 			edit();
 			system("cls");
 		}
+		
 		else if (selection == 4)
 		{
 			search();
 			system("cls");
 		}
+		
+		else if (selection == 5)
+		{
+		        appointment();
+		        system("cls");
+		}
+		
 		else
-		appointment();
-		system("cls");
+		{
+		        cout << "invalid input" << endl;
+			continue;
+		}
 	}
 	cout << "Thanks for using the service";
 	return 0;
@@ -80,90 +86,97 @@ void create()
 	
 	system("cls");
 	cout << "************************************" << endl;
-	cout << "****Patient Data Registry System****\n";
+	cout << "*** Patient Data Registry System ***\n";
 	cout << "************************************" << endl << endl;
 	
 	while ( key != 'n' && key != 'N')
 	{
-	
-	cout << "Please Enter Patient Name : ";
-	cin>> patientData[i].name;
-	cout << "Gender : ";
-	cin >> patientData[i].gender;
-	cout << "Age : ";
-	cin >> patientData[i].age;
-	i++;
-	patient_count++;
-	cout << "Continue to add patient? (y/n) : ";
-	cin >> key;
-	cout << endl;
+	       cout << "Patient Name : ";
+	       cin >> patientData[i].name;
+	       cout << "Gender (M/F) : ";
+	       cin >> patientData[i].gender;
+	       cout << "Age          : ";
+	       cin >> patientData[i].age;
+	       
+	       i++;
+	       patient_count++;
+	       
+	       cout << "Continue to add patient? (y/n) : ";
+	       cin >> key;
+	       cout << endl;
+        }
 }
-}
+
 void remove()
 {
 	system("cls");
 	
 	int p;
-		for(int i = 0; i < patient_count; i++)
+	
+	for(int i = 0; i < patient_count; i++)
 	{
-	cout << "Detail for Patient no" << i+1 << endl;
-	cout << "Name   : " << patientData[i].name << endl;
-	cout << "Gender : " << patientData[i].gender << endl;
-	cout << "Age    : " << patientData[i].age << endl;
-    }
-	cout<<"\n\nPlease choose which patient no. to remove: ";
-	cin>>p;
+	       cout << "Detail for Patient no " << i+1 << endl;
+	       cout << "Name   : " << patientData[i].name << endl;
+	       cout << "Gender : " << patientData[i].gender << endl;
+	       cout << "Age    : " << patientData[i].age << endl;
+        }
 	
-	p=p-1;
-	remove_count=1;
+	cout << "\n\nPlease choose which patient no. to remove: ";
+	cin >> p;
 	
+	p = p-1;
+	remove_count = 1;
 	
-	   for(p;p<patient_count;p++)
-	   {
-          patientData[p]=patientData[p+1];
-       }
+	for(p; p < patient_count; p++)
+	{
+               patientData[p] = patientData[p+1];
+        }
         	
 	system("pause");
 }
+
 void edit()
 {
-		system("cls");
-if (remove_count==1)
-	{
-	for(int i = 0; 	i < patient_count-1; i++)
-	{
-	cout << "Detail for Patient no" << i+1 << endl;
-	cout << "Name   : " << patientData[i].name << endl;
-	cout << "Gender : " << patientData[i].gender << endl;
-	cout << "Age    : " << patientData[i].age << endl;
-}
-}
-else
-	for(int i = 0; 	i < patient_count; i++)
-	{
-	cout << "Detail for Patient no" << i+1 << endl;
-	cout << "Name   : " << patientData[i].name << endl;
-	cout << "Gender : " << patientData[i].gender << endl;
-	cout << "Age    : " << patientData[i].age << endl;
-}
-
-int g;
-cout<<"\n\nPlease choose which patient no. to edit: ";
-cin>>g;
-		
+	system("cls");
 	
-	cout << "\nPlease Enter Patient Name : ";
+        if (remove_count == 1)
+	{
+	       for(int i = 0; i < patient_count-1; i++)
+	       {
+	              cout << "Detail for Patient no " << i+1 << endl;
+	              cout << "Name   : " << patientData[i].name << endl;
+	              cout << "Gender : " << patientData[i].gender << endl;
+	              cout << "Age    : " << patientData[i].age << endl;
+               }
+        }
+	
+        else
+	{
+	       for(int i = 0; i < patient_count; i++)
+	       {
+	              cout << "Detail for Patient no " << i+1 << endl;
+	              cout << "Name   : " << patientData[i].name << endl;
+	              cout << "Gender : " << patientData[i].gender << endl;
+	              cout << "Age    : " << patientData[i].age << endl;
+               }
+	}
+
+        int g;
+	
+        cout << "\n\nPlease choose which patient no. to edit: ";
+        cin >> g;
+	
+	cout << endl;
+	cout << "Patient Name : ";
 	cin>> patientData[g-1].name;
-	cout << "Gender : ";
+	cout << "Gender       : ";
 	cin >> patientData[g-1].gender;
-	cout << "Age : ";
+	cout << "Age          : ";
 	cin >> patientData[g-1].age;
 	
 	system("pause");
-			
-	
-	
 }
+
 void search()
 {
 	system("cls");
@@ -171,24 +184,27 @@ void search()
 	int i;
 	cout << "These are the lists of patient registered : \n\n";
 	
-	if (remove_count==1)
+	if (remove_count == 1)
 	{
-	for(int i = 0; 	i < patient_count-1; i++)
+	       for(int i = 0; i < patient_count-1; i++)
+	       {
+	       cout << "Detail for Patient no " << i+1 << endl;
+	       cout << "Name   : " << patientData[i].name << endl;
+	       cout << "Gender : " << patientData[i].gender << endl;
+	       cout << "Age    : " << patientData[i].age << endl;
+               }
+        }
+	
+        else
 	{
-	cout << "Detail for Patient no" << i+1 << endl;
-	cout << "Name   : " << patientData[i].name << endl;
-	cout << "Gender : " << patientData[i].gender << endl;
-	cout << "Age    : " << patientData[i].age << endl;
-}
-}
-else
-	for(int i = 0; 	i < patient_count; i++)
-	{
-	cout << "Detail for Patient no" << i+1 << endl;
-	cout << "Name   : " << patientData[i].name << endl;
-	cout << "Gender : " << patientData[i].gender << endl;
-	cout << "Age    : " << patientData[i].age << endl;
-}
+	       for(int i = 0; 	i < patient_count; i++)
+	       {
+	              cout << "Detail for Patient no" << i+1 << endl;
+	              cout << "Name   : " << patientData[i].name << endl;
+	              cout << "Gender : " << patientData[i].gender << endl;
+	              cout << "Age    : " << patientData[i].age << endl;
+               }
+	}
 
 
 	system("pause");
