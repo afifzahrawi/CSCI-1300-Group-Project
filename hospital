@@ -6,7 +6,7 @@ int remove_count;
 
 struct Patient
 {
-	char name[50];
+	string name;
 	int age;
 	char gender;
 	
@@ -92,7 +92,8 @@ void create()
 	while ( key != 'n' && key != 'N')
 	{
 	       cout << "Patient Name : ";
-	       cin >> patientData[i].name;
+	       getline (cin, patientData[i].name);
+	       getline (cin, patientData[i].name);
 	       cout << "Gender (M/F) : ";
 	       cin >> patientData[i].gender;
 	       cout << "Age          : ";
